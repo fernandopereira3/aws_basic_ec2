@@ -102,8 +102,8 @@ resource "aws_key_pair" "deployer" {
 }
 
 # Create an EC2 instance
-resource "aws_instance" "Monitor" {
-  ami                    = "ami-0606dd43116f5ed57" # Ubuntu
+resource "aws_instance" "Basic-EC2" {
+  ami                    = "ami-03e383d33727f4804" # Debian
   instance_type          = "t2.micro"
   key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
@@ -116,7 +116,7 @@ resource "aws_instance" "Monitor" {
               EOF
   
   tags = {
-    Name = "Monitor"
+    Name = "Basic-EC2"
   }
 }
 
